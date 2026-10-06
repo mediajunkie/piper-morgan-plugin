@@ -24,6 +24,12 @@ where you approve access.
 - **Claude Code**: `claude --plugin-dir ./piper-morgan-plugin`
 - **ChatGPT**: pending (OpenAI plugin submission).
 
+## Evals
+
+`evals/` holds a `claude plugin eval` suite that runs against a **mocked** Piper connector (fixed data, no
+sign-in), with and without the plugin. Run `claude plugin eval .` from this folder. As of v0.1.0, all three
+skills score 1.00 with the plugin and 0.00 without, and an unrelated request correctly doesn't call Piper.
+
 ## Privacy and support
 
 Privacy policy: [pipermorgan.ai/privacy](https://pipermorgan.ai/privacy). Support: see
