@@ -1,0 +1,13 @@
+{
+  "name": "piper-morgan",
+  "description": "Piper Morgan, a product-management colleague. Reads what Piper knows about you (profile, priorities, how you work, open GitHub issues) to draft standups and prioritize your work. Read-only.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Design in Product",
+    "url": "https://pipermorgan.ai"
+  },
+  "homepage": "https://pipermorgan.ai",
+  "repository": "https://github.com/mediajunkie/piper-morgan-plugin",
+  "license": "Apache-2.0",
+  "keywords": ["product-management", "pm", "standup", "prioritization", "github"]
+}
