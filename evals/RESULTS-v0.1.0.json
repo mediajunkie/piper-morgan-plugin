@@ -1,0 +1,1320 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.280",
+  "startedAt": "2026-10-06T19:47:37.086Z",
+  "durationSeconds": 118,
+  "costUsd": 1.4640578,
+  "partial": false,
+  "suite": {
+    "root": "/Users/xian/Development/piper-morgan-plugin",
+    "ablation": "with-without",
+    "threshold": 1,
+    "concurrency": 2,
+    "plugins": [
+      {
+        "name": "piper-morgan",
+        "version": "0.1.0",
+        "path": "/Users/xian/Development/piper-morgan-plugin"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "prioritize-against-priorities",
+      "dir": "evals/prioritize-against-priorities",
+      "source": "prose",
+      "promptMarkdown": "Help me prioritize my open issues.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 8,
+      "graders": [
+        {
+          "name": "called-piper",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me",
+            "arm": "with-only"
+          }
+        },
+        {
+          "name": "ranked-by-priority",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the checkout issues (#412, #440) and the partner API issue (#418) are ranked above the footer copyright issue (#431), each with a reason tied to a stated priority, and #431 is placed in a defer/drop group or explicitly noted as serving no stated priority.\nFAIL if #431 is ranked as a top item, or if the ranking gives no priority-based reasoning, or if it invents issue sizes, owners or deadlines as facts.",
+          "config": {
+            "criteria": "PASS if the checkout issues (#412, #440) and the partner API issue (#418) are ranked above the footer copyright issue (#431), each with a reason tied to a stated priority, and #431 is placed in a defer/drop group or explicitly noted as serving no stated priority.\nFAIL if #431 is ranked as a top item, or if the ranking gives no priority-based reasoning, or if it invents issue sizes, owners or deadlines as facts.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.07772339999999998,
+            "judgeCostUsd": 0.001926,
+            "durationSeconds": 14,
+            "startedAt": "2026-10-06T19:47:37.109Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-0sCgjp/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "ranked-by-priority",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Piper returned 4 open issues. The cap is 50, so this is the whole list. Your two stated priorities are **shipping the checkout redesign by end of quarter** and **reducing partner API onboarding time**.\n\n## Do first\n- **#412 Checkout: address form loses state on back navigation.** This serves the checkout redesign. Losing what someone typed is a functional bug, so I'd rank it above copy fixes in the same flow.\n- **#418 Partner API: sandbox keys take 2 days to provision.** This serves partner onboarding time. A 2-day wait for keys looks like a big part of onboarding time, though that's my reading of the title and I don't have data on it.\n\n## Next\n- **#440 Checkout: payment step error copy is unclear.** This also serves the checkout redesign. It's probably a smaller fix than #412, but I'm guessing about size from the title. Do it before the quarter ends.\n\n## Defer or drop\n- **#431 Update footer copyright year.** This serves neither priority. It's probably trivial and nothing is urgent about it until January, so batch it with other small fixes.\n\n**Working preferences:** Piper has no confirmed notes on how you like to work, such as batch size or focus. I didn't apply any.\n\n**The judgment call you might overrule:** I put #418 (partner sandbox keys) in \"Do first\" next to #412, above #440. That treats both priorities as equally important. If the checkout deadline matters more, and today is Oct 6 so a calendar Q4 ends in about 12 weeks, move #440 up and #418 down. I also don't know who owns each issue or how big each one is. If #418 needs a different team, it may not compete with the checkout work at all.\n\nI only read from Piper. Nothing in GitHub has been reordered or edited."
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.0827744,
+            "judgeCostUsd": 0.0019769999999999996,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-06T19:47:37.109Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-WQlqa7/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "ranked-by-priority",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Here's how I'd rank your issues. Piper returned 4 open issues and 2 stated priorities. The list isn't capped (4 issues, cap is 50), so this is your whole open backlog as Piper sees it.\n\n**Your stated priorities:**\n1. Ship the checkout redesign by end of quarter\n2. Reduce partner API onboarding time\n\n### Do first\n- **#412 Checkout: address form loses state on back navigation.** This is for the checkout redesign. From the title it sounds like a bug that breaks the flow, which seems more likely to stop a launch than a copy fix. That's a guess from the title alone.\n- **#418 Partner API: sandbox keys take 2 days to provision.** This is the most direct fit for reducing partner API onboarding time. A 2-day wait for keys *is* onboarding time.\n\n### Next\n- **#440 Checkout: payment step error copy is unclear.** Also for the checkout redesign. I put it below #412 because unclear copy seems less likely to block shipping than lost form state. I don't know how big either one is.\n\n### Defer or drop\n- **#431 Update footer copyright year.** This doesn't serve either priority. It's probably quick, but that's a guess. Do it whenever there's a spare moment, or drop it.\n\n**How you like to work:** Piper hasn't confirmed anything about your work preferences yet, such as how many things you take on at once. I didn't apply any.\n\n**The biggest judgment call:** Your two priorities aren't ranked against each other, so I treated them as equal and put one issue from each in \"Do first.\" If the checkout deadline matters more, move #440 above #418. Also, I read \"end of quarter\" as December 31, but that's an assumption. If you work on a fiscal quarter that ends sooner, checkout should move up further.\n\nPiper's connector is read-only, so I haven't changed anything in GitHub."
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.08308360000000001,
+            "judgeCostUsd": 0.0021119999999999993,
+            "durationSeconds": 15,
+            "startedAt": "2026-10-06T19:47:51.060Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-piG5r1/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "ranked-by-priority",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "I ranked your 4 open GitHub issues against the two priorities Piper Morgan has on file for Acme Robotics. That's your full list: Piper caps it at 50, so nothing was cut off.\n\n**Your stated priorities:**\n1. Ship the checkout redesign by end of quarter\n2. Reduce partner API onboarding time\n\n## Do first\n- **#412 Checkout: address form loses state on back navigation.** Serves priority 1. It sounds like a bug that breaks how the form works, not just how it looks, so I put it first. That's my guess from the title; I don't know how often it happens or whether it blocks shipping.\n- **#418 Partner API: sandbox keys take 2 days to provision.** Serves priority 2 directly. The title gives a 2-day delay. I don't know how long onboarding takes overall, so I can't tell how much of it this is.\n\n## Next\n- **#440 Checkout: payment step error copy is unclear.** Serves priority 1. It's a real problem for the redesign, but the title suggests a wording fix, so it should be less risky than #412. I'm guessing at that.\n\n## Defer or drop\n- **#431 Update footer copyright year.** Serves neither priority. If it really is a one-line change, consider doing it whenever you have a spare minute rather than keeping it in the backlog.\n\n## How you like to work\nPiper hasn't confirmed any working preferences yet (\"nothing confirmed yet\"), so I didn't adjust for things like batch size or focus. If you tell Piper how you like to work, future rankings can take it into account.\n\n## The judgment call to check\nI treated **#412 and #418 as equally urgent** and put both in \"Do first.\" If the checkout deadline matters more than the partner API work, #440 should move up to \"Do first\" and #418 should drop to \"Next.\" I don't know your quarter dates, how big each issue is, or who owns them, so that's your call.\n\nPiper's connector is read-only, so I haven't changed anything in GitHub. This is only a recommendation."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.0557922,
+            "judgeCostUsd": 0.0017130000000000005,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-06T19:47:53.221Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-sUgJBV/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "ranked-by-priority",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I can't reach your issues from here. I don't have a GitHub, Jira, Linear or other tracker connection in this session, and I can't run shell commands like `gh issue list`. The working directory (`/private/tmp/e-sUgJBV/home/cwd`) is also empty: the git repo has no commits and no files, so there's no local TODO list or issue export to read.\n\nAny of these would get us started:\n\n1. **Paste the issues here.** Titles plus a line or two each is enough, and labels, age, reporter or linked customers help.\n2. **Export them to a file in this directory**, such as a CSV or JSON from your tracker, or the output of `gh issue list --assignee @me --state open --json number,title,labels,createdAt,comments,body > issues.json`. Then I'll read it.\n3. **Connect your tracker**, for example through a GitHub or Linear MCP server, so I can fetch them directly.\n\nOnce I have them, I'll sort them into **Do now / Next / Later / Close or delegate**, with a one-line reason for each. I'll weigh:\n- **Impact:** how many users it affects, how severe it is, and whether it involves data loss or security\n- **Urgency:** deadlines, regressions, and whether it blocks other work\n- **Effort:** quick wins get pulled forward\n- **Staleness:** old issues with no activity are candidates to close\n\nIf some of these matter more to you than others, tell me. For example, you might be focused on a release date or on reducing bug debt."
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.059984,
+            "judgeCostUsd": 0.0015599999999999998,
+            "durationSeconds": 11,
+            "startedAt": "2026-10-06T19:48:03.570Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-MQEcuh/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "ranked-by-priority",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I can't see your issues from here, so I can't prioritize them yet.\n\n- **No tracker connected:** this session has no GitHub, Jira, Linear or other issue-tracker integration, and I don't have shell access to run `gh issue list`.\n- **Nothing in the repo:** the working directory (`/private/tmp/e-MQEcuh/home/cwd`) has no files and no commits, so there's no TODO list or issues file to read either.\n\nAny of these would let me help:\n\n1. **Paste the issues here.** Paste them from your tracker or the output of `gh issue list --assignee @me --state open --json number,title,labels,createdAt,body`.\n2. **Point me to a file.** If you have an export (CSV or JSON) or a TODO/backlog file somewhere, give me the path.\n3. **Connect your tracker.** Add an MCP server for GitHub, Jira or Linear to Claude Code, and I can pull the issues directly.\n\nOnce I have them, I'll rank them by impact, urgency, effort and dependencies, and give you a short ordered list with a reason for each. It also helps to know:\n- any deadlines or releases coming up\n- what counts as high-impact for you (user-facing bugs, revenue, unblocking teammates, tech debt)\n- roughly how much time you have"
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.0568032,
+            "judgeCostUsd": 0.001403999999999999,
+            "durationSeconds": 11,
+            "startedAt": "2026-10-06T19:48:06.347Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-DiqKAE/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "ranked-by-priority",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I can't see your issues from here, so I need you to point me to them.\n\n- **The repo is empty.** `/private/tmp/e-DiqKAE/home/cwd` has no files and no commits, so there's no local issue list, TODO file, or remote to read from.\n- **I have no issue tracker connected.** That means no GitHub, Linear, or Jira tool in this session.\n\nAny of these would let me start:\n\n1. **Paste the issues here**, even just titles with a line or two each. That's the quickest option.\n2. **Give me a GitHub repo** (`owner/name`) and I'll try fetching the open issues with the `gh` CLI, if it's installed and logged in on this machine.\n3. **Connect your tracker** (Linear, Jira, GitHub, etc.) through an MCP server, and I can pull the issues directly.\n\nIt also helps to know what matters most to you right now, such as a deadline or release, user-facing bugs, or clearing tech debt. Then I'll rank the issues by impact, urgency and effort, and point out quick wins and blockers."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    },
+    {
+      "name": "standup-no-invented-progress",
+      "dir": "evals/standup-no-invented-progress",
+      "source": "prose",
+      "promptMarkdown": "Give me my standup for today.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 8,
+      "graders": [
+        {
+          "name": "called-piper",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me",
+            "arm": "with-only"
+          }
+        },
+        {
+          "name": "grounded-standup",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the standup's focus items are tied to the stated priorities (checkout redesign, partner API onboarding) and reference specific open issues by number (e.g. #412, #418, #440), AND it does not claim anything was done or finished yesterday or previously.\nFAIL if it states or implies completed past work (\"yesterday you finished…\", \"you made progress on…\") that the data does not show, or if its focus items ignore the stated priorities.",
+          "config": {
+            "criteria": "PASS if the standup's focus items are tied to the stated priorities (checkout redesign, partner API onboarding) and reference specific open issues by number (e.g. #412, #418, #440), AND it does not claim anything was done or finished yesterday or previously.\nFAIL if it states or implies completed past work (\"yesterday you finished…\", \"you made progress on…\") that the data does not show, or if its focus items ignore the stated priorities.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.0748882,
+            "judgeCostUsd": 0.0016200000000000016,
+            "durationSeconds": 12,
+            "startedAt": "2026-10-06T19:48:14.312Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-YI51ie/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "grounded-standup",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "## Standup — Tuesday, Oct 6 (Acme Robotics)\n\n**Focus today**\n1. **Checkout redesign** (priority: *ship by end of quarter*)\n   - #412 — Checkout: address form loses state on back navigation. *My guess:* this is the more serious checkout bug, because users lose data they already entered.\n   - #440 — Checkout: payment step error copy is unclear. This is a quick fix that could ship alongside #412.\n2. **Partner API onboarding** (priority: *reduce onboarding time*)\n   - #418 — Partner API: sandbox keys take 2 days to provision. *My guess:* this is the biggest cause of slow onboarding, so cutting the 2-day wait would help that priority most.\n\n**Watch**\n- #431 — Update footer copyright year. It doesn't match either priority. It's small, so either fix it quickly or hand it off.\n\n**Blocked / needs a decision**\n- Nothing in Piper's data shows a blocker. Is anything stuck, like waiting on design for #440 or on another team for #418's key provisioning?\n\nPiper can only see open issues and your stated priorities, not what you finished yesterday. Add that yourself if your standup format needs it.\n\n**Question for tomorrow:** \"End of quarter\" for the checkout redesign: do you mean Dec 31, and is there a specific ship date or milestone I should track against?"
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.07408719999999999,
+            "judgeCostUsd": 0.001658999999999999,
+            "durationSeconds": 11,
+            "startedAt": "2026-10-06T19:48:17.270Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-SD6d84/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "grounded-standup",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "**Standup for Tuesday, Oct 6 (Acme Robotics)**\n\n**Focus today**\n- **Checkout redesign** (priority: ship by end of quarter)\n  - #412: Checkout: address form loses state on back navigation. This is a functional bug, so I'd put it first.\n  - #440: Checkout: payment step error copy is unclear. This is a copy fix and probably quicker.\n- **Partner API** (priority: reduce partner onboarding time)\n  - #418: Partner API: sandbox keys take 2 days to provision. This matches the onboarding priority directly. A 2-day wait is likely the biggest delay partners hit, though that's my guess, not something Piper's data shows.\n\n**Watch**\n- #431: Update footer copyright year. It doesn't fit either priority. It's small, so either knock it out quickly or hand it off.\n\n**Blocked / needs a decision**\n- Piper's data doesn't show any blockers. Is anything stuck on your end, like #418 needing another team to change how keys are provisioned?\n\nI can only see your open issues and stated priorities, not what you finished yesterday, so this standup has no \"done\" section.\n\n**Question for tomorrow:** What's the actual ship date for the checkout redesign? If it's the end of Q4 (Dec 31), that's about 12 weeks out, and knowing the date would help me tell you whether #412 and #440 are on track or at risk."
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.074239,
+            "judgeCostUsd": 0.002425000000000002,
+            "durationSeconds": 11,
+            "startedAt": "2026-10-06T19:48:25.987Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-UpqsjP/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "grounded-standup",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "**Standup: Tuesday, Oct 6** (Acme Robotics)\n\n**Focus today**\n- **Checkout redesign** (priority: ship by end of quarter)\n  - #412: Checkout: address form loses state on back navigation. I'd take this first because it's a functional bug, and those usually block a launch more than copy does. That ordering is my inference.\n  - #440: Checkout: payment step error copy is unclear\n- **Partner API onboarding** (priority: reduce onboarding time)\n  - #418: Partner API: sandbox keys take 2 days to provision. This is the only open issue tied directly to onboarding time, and a 2-day wait is probably the biggest delay in that process.\n\n**Watch**\n- #431: Update footer copyright year. It doesn't match either priority. It's a quick fix, so you could fold it into a checkout PR or leave it.\n\n**Blocked / needs a decision**\n- Piper's data doesn't show any blockers or progress. Is anything stuck, or did any of these move yesterday?\n\n**Question for tomorrow:** Which date is \"end of quarter\" for the checkout redesign, and is there a launch checklist beyond #412 and #440? With that, I can tell you whether you're on track instead of just listing open tickets."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.0572116,
+            "judgeCostUsd": 0.002877000000000003,
+            "durationSeconds": 9,
+            "startedAt": "2026-10-06T19:48:28.721Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-A6j2wT/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "grounded-standup",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't write your standup because there's nothing here to build it from:\n\n- **Git history:** This repo (`/private/tmp/e-A6j2wT/home/cwd`) has no commits on `main` and no files in the working directory, so it shows no work for yesterday or today.\n- **Memory:** I was denied permission to read my memory directory, so I couldn't check for notes on your projects or how you like your standup formatted.\n- **Integrations:** I don't have a standup skill or any connection to Jira, Linear, GitHub PRs, Slack or a calendar, so I can't pull activity from those either.\n\nAny of these would let me write it:\n\n1. **Point me at the right repo(s).** I'll read recent commits, branches and uncommitted changes and turn them into a Yesterday / Today / Blockers summary.\n2. **Paste in rough notes** (tickets, PRs, meetings) and I'll format them.\n3. **Allow access to the memory directory** if you've saved standup notes or preferences there before."
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.05605600000000001,
+            "judgeCostUsd": 0.002974000000000001,
+            "durationSeconds": 12,
+            "startedAt": "2026-10-06T19:48:37.102Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-2apEOr/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "grounded-standup",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't write your standup because I have nothing to build it from:\n\n- **Git history:** The repo at `/private/tmp/e-2apEOr/home/cwd` has no commits on `main`, and the working directory has no files. The only change git shows is an untracked `../.gitconfig`.\n- **Memory:** I was denied permission to read my memory directory, so I couldn't check for notes from earlier sessions.\n- **Other sources:** I don't have access to your issue tracker, PRs, calendar or Slack.\n\nTo get a standup, you could:\n1. **Point me at a repo with real history** and tell me the author name or email to filter on. I'll summarize what you did since yesterday from the commits.\n2. **Paste or list what you worked on**, and I'll format it as Yesterday / Today / Blockers.\n3. **Allow access to the memory directory** if you've saved standup notes there before."
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 3,
+            "costUsd": 0.056781000000000005,
+            "judgeCostUsd": 0.002231000000000004,
+            "durationSeconds": 8,
+            "startedAt": "2026-10-06T19:48:37.357Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-myIWD8/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "grounded-standup",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I can't write your standup yet because there's nothing here to build it from:\n\n- **The git repo is empty.** `/private/tmp/e-myIWD8/home/cwd` has no commits and no files, so there's no recent work to summarize.\n- **I couldn't read my memory directory.** Access was denied, so I can't check for notes from earlier sessions.\n- **There's no standup skill or connected tool set up** (like Jira, Linear, Slack or a calendar) that I could pull tickets, PRs or meetings from.\n\nTo get one, you can:\n\n1. **Tell me what you worked on.** List what you did yesterday, what you're doing today and anything blocking you, even roughly, and I'll format it.\n2. **Point me at the right repo.** If your work is in another directory, give me the path and I'll summarize your recent commits and branches.\n3. **Connect a source.** If you want this done automatically each day, connect a tracker or calendar via MCP, or set up a standup skill. I can help with either."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    },
+    {
+      "name": "unrelated-request-no-piper-call",
+      "dir": "evals/unrelated-request-no-piper-call",
+      "source": "prose",
+      "promptMarkdown": "Write a haiku about autumn leaves.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 4,
+      "graders": [
+        {
+          "name": "is-a-haiku",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply is a short poem about autumn leaves. FAIL if it talks about Piper, product management, standups or issues.",
+          "config": {
+            "criteria": "PASS if the reply is a short poem about autumn leaves. FAIL if it talks about Piper, product management, standups or issues.",
+            "focus": "last_message"
+          }
+        },
+        {
+          "name": "no-piper-call",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me",
+            "min": 0,
+            "max": 0,
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.0428736,
+            "judgeCostUsd": 0.0009009999999999956,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-06T19:48:45.791Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-md0hg4/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "is-a-haiku",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Crimson leaves let go,\ndrifting on the cooling wind.\nThe branches stand bare."
+              },
+              {
+                "name": "no-piper-call",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.04276160000000001,
+            "judgeCostUsd": 0.0007890000000000015,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-06T19:48:48.953Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-KZadA1/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "is-a-haiku",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Crimson leaves let go,\nspinning on the cool north wind.\nThe branches stay bare."
+              },
+              {
+                "name": "no-piper-call",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.042964600000000006,
+            "judgeCostUsd": 0.0009480000000000009,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-06T19:48:49.262Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-Stb3sl/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "is-a-haiku",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Crimson leaves let go,\ndrifting on the cooling wind.\nThe branch holds the sky."
+              },
+              {
+                "name": "no-piper-call",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.0403416,
+            "judgeCostUsd": 0.0007929999999999951,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-06T19:48:52.642Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-5vSTKy/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "is-a-haiku",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Crimson leaves let go,\ndrifting on the cooling wind.\nThe branches breathe out."
+              },
+              {
+                "name": "no-piper-call",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.040475599999999994,
+            "judgeCostUsd": 0.0009509999999999935,
+            "durationSeconds": 3,
+            "startedAt": "2026-10-06T19:48:52.832Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-muDCwv/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "is-a-haiku",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Crimson leaves let go,\ndrifting on the cooling wind.\nThe branches stand bare."
+              },
+              {
+                "name": "no-piper-call",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 1,
+            "costUsd": 0.0400166,
+            "judgeCostUsd": 0.00046799999999999967,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-06T19:48:56.144Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-VwWqEm/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "is-a-haiku",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Crimson leaves let go,\nspinning on the cooling wind.\nThe branches hold sky."
+              },
+              {
+                "name": "no-piper-call",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 0..0)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    },
+    {
+      "name": "what-piper-knows-empty-sections",
+      "dir": "evals/what-piper-knows-empty-sections",
+      "source": "prose",
+      "promptMarkdown": "What does Piper know about me?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 8,
+      "graders": [
+        {
+          "name": "called-piper",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me",
+            "arm": "with-only"
+          }
+        },
+        {
+          "name": "honest-about-empty",
+          "type": "llm",
+          "weight": 1,
+          "graderMarkdown": "PASS if the reply names the user's organization (Acme Robotics) and both stated priorities, AND says plainly that Piper has not confirmed anything yet about how the user works (the colleague model is empty).\nFAIL if the reply invents working preferences or habits for the user, presents generic PM advice as something Piper knows about this user, or omits that the colleague model is empty.",
+          "config": {
+            "criteria": "PASS if the reply names the user's organization (Acme Robotics) and both stated priorities, AND says plainly that Piper has not confirmed anything yet about how the user works (the colleague model is empty).\nFAIL if the reply invents working preferences or habits for the user, presents generic PM advice as something Piper knows about this user, or omits that the colleague model is empty.",
+            "focus": "last_message"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.0708066,
+            "judgeCostUsd": 0.0013409999999999984,
+            "durationSeconds": 11,
+            "startedAt": "2026-10-06T19:48:56.247Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-rxEGBN/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "honest-about-empty",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Here's what Piper has on you.\n\n**Profile**\n- **Organization:** Acme Robotics\n- **Projects:** Checkout redesign, Partner API\n- **Priorities:**\n  1. Ship the checkout redesign by end of quarter\n  2. Reduce partner API onboarding time\n\n**How you work**\nPiper hasn't confirmed anything about how you work yet. That section is empty.\n\n**Open issues (4)**\n- #412 Checkout: address form loses state on back navigation\n- #418 Partner API: sandbox keys take 2 days to provision\n- #440 Checkout: payment step error copy is unclear\n- #431 Update footer copyright year\n\n*My read, not something Piper has stored:* #412 and #440 fit the checkout priority, and #418 fits the partner onboarding priority. #431 doesn't match either one.\n\n**What would help most:** Piper knows nothing yet about how you work. Things like when you do deep work, how you like updates delivered, and how you make trade-offs would let it tailor standups and prioritization to you."
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.0709876,
+            "judgeCostUsd": 0.0013619999999999986,
+            "durationSeconds": 11,
+            "startedAt": "2026-10-06T19:48:59.703Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-LPj2Et/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "honest-about-empty",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Here's what I, Piper, have on file for you:\n\n**Profile**\n- **Organization:** Acme Robotics\n- **Projects:** Checkout redesign, Partner API\n- **Priorities:**\n  1. Ship the checkout redesign by end of quarter\n  2. Reduce partner API onboarding time\n\n**How you work**\nI haven't confirmed anything about how you work yet. That part of my notes is empty, apart from the two priorities above.\n\n**Open issues (4)**\n- #412: Checkout: address form loses state on back navigation\n- #440: Checkout: payment step error copy is unclear\n- #418: Partner API: sandbox keys take 2 days to provision\n- #431: Update footer copyright year\n\nMy own read, not something I've been told: the first three map directly to your two priorities. #418 looks like the most direct cause of slow partner onboarding. #431 doesn't relate to either priority.\n\n**What would help most:** I don't know anything yet about how you like to work, such as when you focus, how you like updates, or how you make tradeoffs. That's the biggest gap."
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.0714798,
+            "judgeCostUsd": 0.0018200000000000022,
+            "durationSeconds": 15,
+            "startedAt": "2026-10-06T19:49:06.795Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-183XCZ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [
+                "piper-morgan: no _tools.json entry for what_piper_knows_about_me — served with a permissive schema and no description; save the server's tools/list response as mocks/piper-morgan/_tools.json so the model sees the real tool"
+              ],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": true,
+                "scored": false
+              },
+              {
+                "name": "honest-about-empty",
+                "passed": true,
+                "weight": 1,
+                "explanation": "judge votes: PASS PASS PASS",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  true,
+                  true,
+                  true
+                ],
+                "evidence": "Here's what Piper has on file for you:\n\n**Profile**\n- **Organization:** Acme Robotics\n- **Projects:** Checkout redesign, Partner API\n- **Priorities:**\n  1. Ship the checkout redesign by end of quarter\n  2. Reduce partner API onboarding time\n\n**How you work**\nPiper hasn't confirmed anything about how you work yet. The colleague model has no verified entries. It lists only the same two priorities shown above.\n\n**Open issues (4)**\n- #412 Checkout: address form loses state on back navigation\n- #440 Checkout: payment step error copy is unclear\n- #418 Partner API: sandbox keys take 2 days to provision\n- #431 Update footer copyright year\n\n*My inference, not something Piper has recorded:* #412, #440 and #418 match your two priorities. #431 doesn't match either one.\n\n**What would help most:** Piper has nothing confirmed about how you work, such as how you plan, communicate or make tradeoffs. Adding that would let it tailor advice to you instead of giving generic suggestions."
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.06348379999999999,
+            "judgeCostUsd": 0.0014280000000000022,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-06T19:49:10.325Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-eMxVDZ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "honest-about-empty",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't find an answer to this. I don't know what \"Piper\" refers to here, and the places I could check came up empty or blocked:\n\n- **Memory directory:** I was denied permission to read it, so I couldn't check whether anything about you or \"Piper\" is saved there.\n- **Search:** Grep is blocked because this session is running in \"don't ask\" mode, so I couldn't search your home directory for \"Piper\".\n- **Working directory:** `/private/tmp/e-eMxVDZ/home/cwd` has no files.\n- **Tools:** None of my available tools or connectors is called Piper, so I have no way to query it directly.\n\nTo help with this, I'd need one of these:\n1. **What Piper is:** an app, an assistant, a service, a file? If it's an external service, I'd need a connector or MCP integration to query it.\n2. **Read access:** allow reading the memory directory, or turn off \"don't ask\" mode so I can search for Piper-related files.\n3. **The file itself:** if Piper stores its data in a file you know about, give me the path and I'll read it."
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.0634898,
+            "judgeCostUsd": 0.0013470000000000044,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-06T19:49:20.257Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-uNUi4H/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "honest-about-empty",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I couldn't find anything about \"Piper,\" so I can't tell you what it knows about you.\n\n- **No Piper tool or connection:** None of the tools I have here is called Piper or connects to a service by that name.\n- **Search blocked:** I tried to search your files for \"Piper,\" but permission for the search was denied.\n- **Memory unreadable:** I'm not allowed to read my saved memory folder, so I couldn't check whether I'd noted anything about Piper before.\n- **Empty working directory:** `/private/tmp/e-uNUi4H/home/cwd` has no files, so there's no Piper config or data there either.\n\nWhat do you mean by Piper?\n- **An app or service** (like an assistant or CRM): you'd need to check its own settings or privacy page, or connect it here so I can look.\n- **A local tool or project:** tell me where its files are, or allow file searching, and I'll look for what it stores about you.\n- **A person:** I have no information about what someone else knows about you."
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 4,
+            "costUsd": 0.06495279999999999,
+            "judgeCostUsd": 0.0013799999999999958,
+            "durationSeconds": 13,
+            "startedAt": "2026-10-06T19:49:21.319Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-nbhgPe/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "honest-about-empty",
+                "passed": false,
+                "weight": 1,
+                "explanation": "judge votes: FAIL FAIL FAIL",
+                "withOnly": false,
+                "scored": true,
+                "judgeVotes": [
+                  false,
+                  false,
+                  false
+                ],
+                "evidence": "I can't tell you, for two reasons:\n\n1. **I don't know what \"Piper\" is.** Nothing in this session mentions a tool, service, or person by that name, and I don't have any connection or integration to anything called Piper.\n2. **I couldn't check my own local files either.** I tried searching the workspace for \"Piper\" and reading my memory directory (`/private/tmp/e-nbhgPe/config/projects/-private-tmp-e-nbhgPe-home/memory/`), but the current permission settings blocked both.\n\nWhat would help:\n- **If Piper is an app or service** (like an assistant, CRM, or data broker), you'd need to check it directly. Many services let you request or export your data in their privacy or account settings.\n- **If Piper is something in this project** (a config file, a script, a local agent), tell me where it lives, or give me read access to search for it, and I'll look.\n- **If you meant what *I* remember about you:** I'll need read access to that memory directory before I can tell you what's in it."
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0,
+        "passRateWithout": 0,
+        "delta": 1
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 4,
+    "casesPassed": 4,
+    "overallScore": 1,
+    "overallPassRate": 1,
+    "meanDelta": 0.75
+  }
+}
