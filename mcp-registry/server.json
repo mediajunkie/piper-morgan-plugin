@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.pipermorgan/piper-morgan",
+  "title": "Piper Morgan",
+  "description": "A product-management colleague: read-only access to your Piper profile, priorities, how you work, and open GitHub issues.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mediajunkie/piper-morgan-plugin",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.pipermorgan.ai/mcp"
+    }
+  ]
+}
