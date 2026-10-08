@@ -11,7 +11,8 @@ how you like to work, and your open GitHub issues), and adds skills that use it:
 | `prioritize-my-issues` | Ranks your open issues against your stated priorities |
 
 The connector (`https://mcp.pipermorgan.ai/mcp`) is **read-only**. Signing in happens on a Piper page,
-where you approve access.
+where you approve access. You can remove an assistant's access at any time in Piper under
+**Settings → Connected apps**, or by removing Piper from your assistant's own settings.
 
 **Status: alpha, invitation only.** You need a Piper Morgan account at
 [pipermorgan.ai](https://pipermorgan.ai).
