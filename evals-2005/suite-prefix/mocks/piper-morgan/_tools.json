@@ -1,0 +1,20 @@
+{
+ "tools": [
+  {
+   "name": "what_piper_knows_about_me",
+   "title": "What Piper knows about me",
+   "description": "Read-only. Returns what Piper Morgan knows about the signed-in user, in one call: their profile (organization, active projects, stated priorities), their colleague model (what Piper has confirmed with them about how they work), and their open GitHub issues via their own connected GitHub account. Each section reports available=false or an explicit empty note rather than guessing; report empty sections as empty, never fill them in.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {}
+   },
+   "annotations": {
+    "title": "What Piper knows about me",
+    "readOnlyHint": true,
+    "destructiveHint": false,
+    "idempotentHint": true,
+    "openWorldHint": false
+   }
+  }
+ ]
+}

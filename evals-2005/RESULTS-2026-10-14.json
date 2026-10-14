@@ -1,0 +1,472 @@
+{
+ "bare-postfix-desc": {
+  "costUsd": 0.8294246,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": false,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": false,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ },
+ "bare-postfix": {
+  "costUsd": 0.8016911,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": false,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ },
+ "bare-prefix": {
+  "costUsd": 0.8346640000000001,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": false,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": false,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    }
+   ]
+  }
+ },
+ "bare-short-desc": {
+  "costUsd": 0.6022344,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ },
+ "bare-short": {
+  "costUsd": 0.7525066,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": false,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": false,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": false,
+     "partial-list-honesty": false
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ },
+ "full-postfix-desc": {
+  "costUsd": 0.8191808,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ },
+ "full-postfix": {
+  "costUsd": 0.8080747,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ },
+ "full-prefix": {
+  "costUsd": 0.7672570000000001,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": false
+    }
+   ]
+  }
+ },
+ "full-short-desc": {
+  "costUsd": 0.6266381000000001,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ },
+ "full-short": {
+  "costUsd": 0.6314263,
+  "cases": {
+   "count-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "list-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ],
+   "prioritize-my-issues": [
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    },
+    {
+     "called-piper": true,
+     "partial-list-honesty": true
+    }
+   ]
+  }
+ }
+}

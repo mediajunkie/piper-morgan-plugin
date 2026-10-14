@@ -1,0 +1,19 @@
+{
+  "name": "piper-morgan",
+  "description": "EVAL VARIANT (#2005): the bare Piper Morgan connector with no skills. Not for install.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Design in Product",
+    "url": "https://pipermorgan.ai"
+  },
+  "homepage": "https://pipermorgan.ai",
+  "repository": "https://github.com/mediajunkie/piper-morgan-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "product-management",
+    "pm",
+    "standup",
+    "prioritization",
+    "github"
+  ]
+}
