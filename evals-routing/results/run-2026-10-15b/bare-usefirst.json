@@ -1,0 +1,1523 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.296",
+  "startedAt": "2026-10-15T13:55:48.743Z",
+  "durationSeconds": 122,
+  "costUsd": 2.736707,
+  "partial": false,
+  "suite": {
+    "root": "/Users/xian/Development/piper-morgan-plugin/variants/bare-mcp",
+    "ablation": "none",
+    "threshold": 0,
+    "concurrency": 4,
+    "plugins": [
+      {
+        "name": "piper-morgan",
+        "version": "0.1.0",
+        "path": "/Users/xian/Development/piper-morgan-plugin/variants/bare-mcp"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "assigned-to-me",
+      "dir": "evals-routing/suite-usefirst/assigned-to-me",
+      "source": "prose",
+      "promptMarkdown": "What's assigned to me on GitHub right now?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 8,
+      "graders": [
+        {
+          "name": "called-piper",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.08285120000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 13,
+            "startedAt": "2026-10-15T13:55:48.785Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-x7p44F/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.10465279999999999,
+            "judgeCostUsd": 0,
+            "durationSeconds": 17,
+            "startedAt": "2026-10-15T13:55:48.785Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-k6vBLu/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": false,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.0850456,
+            "judgeCostUsd": 0,
+            "durationSeconds": 13,
+            "startedAt": "2026-10-15T13:55:48.785Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-8tgbBn/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.0845244,
+            "judgeCostUsd": 0,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-15T13:55:48.785Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-noFxyB/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.14658480000000002,
+            "judgeCostUsd": 0,
+            "durationSeconds": 27,
+            "startedAt": "2026-10-15T13:56:01.315Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-xtobpK/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.1136936,
+            "judgeCostUsd": 0,
+            "durationSeconds": 20,
+            "startedAt": "2026-10-15T13:56:02.114Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-VLtukZ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": false,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.0850394,
+            "judgeCostUsd": 0,
+            "durationSeconds": 13,
+            "startedAt": "2026-10-15T13:56:05.044Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-pxvgfU/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.0839724,
+            "judgeCostUsd": 0,
+            "durationSeconds": 13,
+            "startedAt": "2026-10-15T13:56:05.739Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-oGh2LZ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.08292559999999999,
+            "judgeCostUsd": 0,
+            "durationSeconds": 12,
+            "startedAt": "2026-10-15T13:56:18.462Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-8KhLfl/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.0838656,
+            "judgeCostUsd": 0,
+            "durationSeconds": 14,
+            "startedAt": "2026-10-15T13:56:18.995Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-c1g3wP/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.8,
+        "passRate": 0.8
+      }
+    },
+    {
+      "name": "count-my-issues",
+      "dir": "evals-routing/suite-usefirst/count-my-issues",
+      "source": "prose",
+      "promptMarkdown": "How many open GitHub issues do I have?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 8,
+      "graders": [
+        {
+          "name": "called-piper",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.07474739999999999,
+            "judgeCostUsd": 0,
+            "durationSeconds": 9,
+            "startedAt": "2026-10-15T13:56:21.897Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-zVb1YJ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.07772180000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 12,
+            "startedAt": "2026-10-15T13:56:28.149Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-MfL7S8/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.0770372,
+            "judgeCostUsd": 0,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-15T13:56:30.669Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-hLkEK4/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.0731466,
+            "judgeCostUsd": 0,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-15T13:56:30.751Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-jqzsrG/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.07613400000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 9,
+            "startedAt": "2026-10-15T13:56:33.310Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-vdV8hM/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.1268738,
+            "judgeCostUsd": 0,
+            "durationSeconds": 23,
+            "startedAt": "2026-10-15T13:56:40.239Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-vnrnBN/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": false,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.075607,
+            "judgeCostUsd": 0,
+            "durationSeconds": 10,
+            "startedAt": "2026-10-15T13:56:40.828Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-H8yPZJ/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.115673,
+            "judgeCostUsd": 0,
+            "durationSeconds": 19,
+            "startedAt": "2026-10-15T13:56:41.054Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-iYqcdb/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": false,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.11044079999999999,
+            "judgeCostUsd": 0,
+            "durationSeconds": 20,
+            "startedAt": "2026-10-15T13:56:42.671Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-E1ZwX4/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": false,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0,
+            "passed": false,
+            "turns": 2,
+            "costUsd": 0.1010256,
+            "judgeCostUsd": 0,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-15T13:56:50.404Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-aPkDtA/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 0,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": false,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 0x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.6,
+        "passRate": 0.6
+      }
+    },
+    {
+      "name": "work-on-today",
+      "dir": "evals-routing/suite-usefirst/work-on-today",
+      "source": "prose",
+      "promptMarkdown": "What should I work on today?",
+      "runsPerCase": 3,
+      "timeoutSeconds": 300,
+      "maxTurns": 8,
+      "graders": [
+        {
+          "name": "called-piper",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me",
+            "arm": "with-only"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.08747,
+            "judgeCostUsd": 0,
+            "durationSeconds": 18,
+            "startedAt": "2026-10-15T13:56:59.771Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-stdAun/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.0921376,
+            "judgeCostUsd": 0,
+            "durationSeconds": 18,
+            "startedAt": "2026-10-15T13:57:03.071Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-B97svC/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.08523900000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 14,
+            "startedAt": "2026-10-15T13:57:03.665Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-k8ETGv/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.085785,
+            "judgeCostUsd": 0,
+            "durationSeconds": 14,
+            "startedAt": "2026-10-15T13:57:06.825Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-MeAo2S/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.0850584,
+            "judgeCostUsd": 0,
+            "durationSeconds": 14,
+            "startedAt": "2026-10-15T13:57:17.821Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-C19LfH/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.0866662,
+            "judgeCostUsd": 0,
+            "durationSeconds": 16,
+            "startedAt": "2026-10-15T13:57:17.961Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-Q3kEz1/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.0876818,
+            "judgeCostUsd": 0,
+            "durationSeconds": 17,
+            "startedAt": "2026-10-15T13:57:20.651Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-Aj2FJT/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.09004659999999999,
+            "judgeCostUsd": 0,
+            "durationSeconds": 15,
+            "startedAt": "2026-10-15T13:57:20.857Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-p7IS84/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 4,
+            "costUsd": 0.0850524,
+            "judgeCostUsd": 0,
+            "durationSeconds": 19,
+            "startedAt": "2026-10-15T13:57:31.934Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-jF7Fkd/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 5,
+            "costUsd": 0.0900074,
+            "judgeCostUsd": 0,
+            "durationSeconds": 17,
+            "startedAt": "2026-10-15T13:57:33.808Z",
+            "error": null,
+            "tracePath": "/private/tmp/e-c8OzWA/out/trace.jsonl",
+            "skippedPaidGraders": false,
+            "mocks": {
+              "servers": [
+                {
+                  "server": "piper-morgan",
+                  "kind": "shadow",
+                  "tools": [
+                    {
+                      "tool": "what_piper_knows_about_me",
+                      "responder": "fixed"
+                    }
+                  ]
+                }
+              ],
+              "warnings": [],
+              "calls": {
+                "total": 1,
+                "errors": 0,
+                "unmocked": [],
+                "costUsd": 0,
+                "replay": {
+                  "hits": 0,
+                  "misses": 0
+                }
+              }
+            },
+            "graders": [
+              {
+                "name": "called-piper",
+                "passed": true,
+                "weight": 1,
+                "explanation": "mcp__plugin_piper-morgan_piper-morgan__what_piper_knows_about_me called 1x (expected 1..∞)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 3,
+    "casesPassed": 3,
+    "overallScore": 0.7999999999999999,
+    "overallPassRate": 0.7999999999999999
+  }
+}
